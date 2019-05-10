@@ -54,7 +54,7 @@ public class HandUIObject : MonoBehaviour
 
     private Transform _anchor;
 
-    public Vector3 buttonSize;
+    public Vector2 buttonSize;
     public Vector3 buttonPivot;
 
     public Transform lineStart, lineEnd;
@@ -69,7 +69,7 @@ public class HandUIObject : MonoBehaviour
     [HideInInspector] public float closestHandLineDist = float.PositiveInfinity;
     [HideInInspector] public float closestHandRectDist = float.PositiveInfinity;
 
-    private Vector3 closestHandTipPos, prevPos, posDelta, localPosDelta, prevMidpointPos, prevDeltaV;
+    private Vector3 closestHandPointer, prevPos, posDelta, localPosDelta, prevMidpointPos, prevDeltaV;
 
     [HideInInspector] public float closestHandXZDist = float.PositiveInfinity;
     [HideInInspector] public float deltaAngle;
@@ -244,7 +244,6 @@ public class HandUIObject : MonoBehaviour
         if (!hand.isTracked) return float.PositiveInfinity;
 
         var lossyScale = transform.lossyScale.x;
-        Vector3 pointerInObjSpace;
 
         switch (objectType)
         {
@@ -255,12 +254,13 @@ public class HandUIObject : MonoBehaviour
             case ObjectType.Circle:
                 return ClosestPointOnCircleToHand(hand).sqrDist(HandPointerPos(hand));
             case ObjectType.Rect:
+                Vector3 pointerInObjSpace;
                 pointerInObjSpace = (transform.InverseTransformPoint(HandPointerPos(hand)) - buttonPivot) * lossyScale;
                 Vector3 worldButtonSize = buttonSize * lossyScale;
 
                 if (Mathf.Abs(pointerInObjSpace.x) < worldButtonSize.x / 2 &&
                     Mathf.Abs(pointerInObjSpace.y) < worldButtonSize.y / 2 &&
-                    Mathf.Abs(pointerInObjSpace.z) < worldButtonSize.z / 2)
+                    Mathf.Abs(pointerInObjSpace.z) < hoverDistance)
                     return pointerInObjSpace.z * pointerInObjSpace.z;
                 else
                     return float.PositiveInfinity;
@@ -269,54 +269,8 @@ public class HandUIObject : MonoBehaviour
         return float.PositiveInfinity;
 
     }
-
-    private void WatchClosestHand()
-    {
-        closestHand = null;
-
-        //find closest hand
-        dL = HandDistance(HandUIManager.handLeft);
-        dR = HandDistance(HandUIManager.handRight);
-
-        if (dL <= dR) closestHand = HandUIManager.handLeft;
-        else if (dR < dL) closestHand = HandUIManager.handRight;
-
-        closestHandDist = Mathf.Min(dL, dR);
-
-        if (closestHandDist < float.PositiveInfinity)
-        {
-            closestHandTipPos = HandPointerPos(closestHand);
-
-            if (objectType == ObjectType.Rect)
-            {
-                var indexInObjSpace = (transform.InverseTransformPoint(closestHandTipPos) - buttonPivot) *
-                                      transform.lossyScale.x;
-                Vector3 worldButtonSize = buttonSize * transform.lossyScale.x;
-
-                if (Mathf.Abs(indexInObjSpace.x) < worldButtonSize.x / 2 &&
-                    Mathf.Abs(indexInObjSpace.y) < worldButtonSize.y / 2 &&
-                    Mathf.Abs(indexInObjSpace.z) < worldButtonSize.z / 2)
-                    closestHandRectDist = indexInObjSpace.z * indexInObjSpace.z;
-                else
-                    closestHandRectDist = float.PositiveInfinity;
-            }
-            else if (objectType == ObjectType.Line)
-            {
-                closestHandLineDist = DistToLineSegment(closestHandTipPos, lineRenderer);
-            }
-            else if (objectType == ObjectType.Circle)
-            {
-                closestHandXZDist = closestHandTipPos.xzSqrDist(transform.position);
-            }
-        }
-        else
-        {
-            closestHandLineDist = float.PositiveInfinity;
-            closestHandRectDist = float.PositiveInfinity;
-        }
-    }
-
-    private Vector3 HandPointerPos(InteractionHand hand)
+    
+    public Vector3 HandPointerPos(InteractionHand hand)
     {
         switch (pointerMode)
         {
@@ -335,7 +289,16 @@ public class HandUIObject : MonoBehaviour
 
     private void Update()
     {
-        WatchClosestHand();
+        closestHand = null;
+
+        //find closest hand
+        dL = HandDistance(HandUIManager.handLeft);
+        dR = HandDistance(HandUIManager.handRight);
+
+        if (dL <= dR) closestHand = HandUIManager.handLeft;
+        else if (dR < dL) closestHand = HandUIManager.handRight;
+
+        closestHandDist = Mathf.Min(dL, dR);
         
         dist = closestHandDist;
         handIsClose = dist < hoverDistance * hoverDistance;
@@ -391,33 +354,6 @@ public class HandUIObject : MonoBehaviour
 
         }
 
-//        if (pointerMode == PointerMode.TwoHandedOnly && moveWithBothPinches)
-//        {
-//            var midpoint = (HandUIManager.pinchLeft.pose.position + HandUIManager.pinchLeft.pose.position) / 2;
-//
-//            if (pinched)
-//            {
-//                var currentDistance = Vector3.Distance(HandUIManager.pinchLeft.pose.position,
-//                    HandUIManager.pinchRight.pose.position);
-//                var currentRightToLeft = HandUIManager.pinchLeft.pose.position - HandUIManager.pinchRight.pose.position;
-//                currentRightToLeft.y = 0;
-//
-//                var angle = Vector3.SignedAngle(currentRightToLeft, onGrabRightToLeft, Vector3.up);
-//                if (!reset) deltaAngle = prevAngle - angle;
-//                else reset = false;
-//
-//                prevAngle = angle;
-//                onGrabMidpointOffset = Quaternion.Euler(0, deltaAngle, 0) * onGrabMidpointOffset;
-//                transform.Rotate(deltaAngle * Vector3.up);
-//                transform.position = midpoint - onGrabMidpointOffset * currentDistance / onGrabDistanceBetweenHands;
-//
-//                if (scaleWithBothPinches)
-//                    transform.localScale = onGrabScale * currentDistance / onGrabDistanceBetweenHands;
-//            }
-//
-//            prevMidpointPos = midpoint;
-//        }
-
         if (pinched)
         {
             var currentPinchPos = HandPointerPos(closestHand);
@@ -454,7 +390,7 @@ public class HandUIObject : MonoBehaviour
             else
             {
                 // move with one hand
-                transform.position = closestHand.pinchPos() - onGrabMidpointOffset;
+                transform.position = HandPointerPos(closestHand) - onGrabMidpointOffset;
             }
             
 
@@ -525,10 +461,10 @@ public class HandUIObject : MonoBehaviour
 
     private void LateUpdate()
     {
-        posDelta = closestHandTipPos - prevPos;
-        localPosDelta = transform.InverseTransformPoint(closestHandTipPos) - transform.InverseTransformPoint(prevPos);
+        posDelta = closestHandPointer - prevPos;
+        localPosDelta = transform.InverseTransformPoint(closestHandPointer) - transform.InverseTransformPoint(prevPos);
 
-        prevPos = closestHandTipPos;
+        prevPos = closestHandPointer;
     }
 
     public Vector3 handPosDelta()

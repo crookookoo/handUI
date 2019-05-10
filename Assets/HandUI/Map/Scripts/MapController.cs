@@ -109,22 +109,6 @@ public class MapController : MonoBehaviour {
 
 		transform.localPosition += (pos - transform.localPosition) * 0.1f * 100 * Time.deltaTime;
 
-		// Debug.Log( heightMap.GetPixel((int)Mathf.Floor(textureCoord.x), (int)Mathf.Floor(textureCoord.y)).grayscale );
-
-
-		if(Input.GetKeyDown(KeyCode.Space)){
-			
-			Debug.Log("relative cirle radius in px" + circleRadius);
-			Debug.Log("cirle center in px" + center);
-			Debug.Log("min " + heightMap.GetPixel((int)center.x, (int)center.y).grayscale);
-			// Debug.Log("center %" + xPercent + " |  " + yPercent);
-			// Debug.Log(heightMap.GetPixel((int)Mathf.Floor(textureCoord.x), (int)Mathf.Floor(textureCoord.y)).grayscale);
-			// Debug.Log("center " + heightMap.GetPixel((int)Mathf.Floor(textureCoord.x), (int)Mathf.Floor(textureCoord.y)).grayscale);
-			// Debug.Log("top " + points[0]);
-			// Debug.Log("bot " + points[1]);
-			// Debug.Log("rig " + points[2]);
-			// Debug.Log("lef " + points[3]);
-		}
 
 	}
 

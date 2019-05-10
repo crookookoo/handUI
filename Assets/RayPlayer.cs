@@ -8,6 +8,12 @@ public class RayPlayer : HandRaycastItem
     public RayHoverUI rayHover;
 
     public SimplePlayer player;
+
+    private bool justCollapsed;
+
+    private float collapseTimer = 0;
+    private float collapseTimeThreshold = 1;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,12 +23,20 @@ public class RayPlayer : HandRaycastItem
     // Update is called once per frame
     void Update()
     {
-        
+        if (justCollapsed)
+        {
+            collapseTimer += Time.deltaTime;
+            if (collapseTimer > collapseTimeThreshold)
+            {
+                justCollapsed = false;
+                collapseTimer = 0;
+            }
+        }
     }
     protected override void OnHoverBegin()
     {
         //show UI
-        if(!rayHover.shown) rayHover.Appear(base.hrt.WhichHandHovering());
+        if(!rayHover.shown && !justCollapsed) rayHover.Appear(base.hrt.WhichHandHovering());
     }
     protected override void OnHoverEnd()
     {
@@ -51,6 +65,8 @@ public class RayPlayer : HandRaycastItem
             base.hrt.GetComponent<Collider>().enabled = true;
             player.GetComponent<Collider>().enabled = false; 
             rayHover.SetFreeze(false);
+            rayHover.Disappear();
+            justCollapsed = true;
         });
 
 

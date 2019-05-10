@@ -14,24 +14,24 @@ public class RayThermostat : HandRaycastItem
     private float onGrabVal, val, zAngleOnGrab;
     private Vector3 anglesOnGrab;
     
-    private bool pinched;
-    // Start is called before the first frame update
+    private bool isPinched;
+
     void Start()
     {
         valueText = value.GetComponent<TextMeshPro>();
         val = float.Parse(valueText.text);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (pinched)
+        if (isPinched)
         {
             //watch vertical movement and adjust value
             float dY = base.hrt.hoveringRaycast.GetCurrentDragDelta().y;
             val = onGrabVal + dY * 100;
             valueText.text = val.ToString("00");
             nestText.text = val.ToString("00");
+            
             //rotate lines
             Vector3 newAngles = lines.transform.localEulerAngles;
             newAngles.z = zAngleOnGrab - dY * 1000;
@@ -54,14 +54,14 @@ public class RayThermostat : HandRaycastItem
         rayHover.PinchBegin();
         onGrabVal = val;
         zAngleOnGrab = lines.transform.eulerAngles.z;
-        pinched = true;
+        isPinched = true;
         
         lines.SetColor(0.7f);
     }
     protected override void OnPinchEnd()
     {
         rayHover.PinchEnd();
-        pinched = false;
+        isPinched = false;
         lines.SetInitialColor();
 
     }

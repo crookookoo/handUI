@@ -11,10 +11,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/HandKeyboard/keyboard.unity
     guid: d0d41d20e720ff04fae010e83e3958bd
-  - enabled: 0
+  - enabled: 1
     path: Assets/HandUI/Main.unity
     guid: da7c4a5a9d079df498c7964e83d36492
-  - enabled: 1
+  - enabled: 0
     path: Assets/HandUI/Map/Map_and_Pedestals.unity
     guid: 56df349c4a9f38048a94fc9c847cef10
   m_configObjects: {}

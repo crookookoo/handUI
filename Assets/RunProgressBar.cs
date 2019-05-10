@@ -7,7 +7,7 @@ public class RunProgressBar : MonoBehaviour
 {
     public float lineLenght = 32;
     public float fullDuration = 200;
-    public bool isOn = true;
+    private bool isOn = true;
     
     private LineRenderer line;
 

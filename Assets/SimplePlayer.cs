@@ -26,7 +26,10 @@ public class SimplePlayer : MonoBehaviour
         DOVirtual.DelayedCall(0.1f, () =>
         {
             playerControls.ScaleY(1);
+            volumeSlider.gameObject.SetActive(true);
             volumeSlider.ScaleY(1);            
+
+            xButton.gameObject.SetActive(true);
             xButton.Show();
         });
 
@@ -39,9 +42,11 @@ public class SimplePlayer : MonoBehaviour
         playerControls.ScaleY(0);
         volumeSlider.ScaleY(0);            
         xButton.Hide();
-
+        
         DOVirtual.DelayedCall(0.1f, () =>
         {
+            xButton.gameObject.SetActive(false);
+            volumeSlider.gameObject.SetActive(false);
             DOTween.To(()=> panel.size.y, x=> panel.size.y = x, heightMinMax.x, 0.1f);
         });
         

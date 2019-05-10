@@ -55,9 +55,9 @@
               <e p="MapController.cs" t="Include" />
               <e p="MapControlPoint.cs" t="Include" />
               <e p="MapShaderController.cs" t="Include" />
+              <e p="Turntable.cs" t="Include" />
+              <e p="TurntableCircle.cs" t="Include" />
             </e>
-            <e p="Turntable.cs" t="Include" />
-            <e p="TurntableCircle.cs" t="Include" />
           </e>
           <e p="Materials" t="Include">
             <e p="FresnelEffect.shader" t="Include" />
@@ -1063,6 +1063,12 @@
           </e>
           <e p="Sprites" t="Include">
             <e p="EmojiOne Attribution.txt" t="Include" />
+          </e>
+        </e>
+        <e p="ToggleIcon.cs" t="Include" />
+        <e p="Vendor" t="Include">
+          <e p="MeshCombineWizard" t="Include">
+            <e p="License.txt" t="Include" />
           </e>
         </e>
       </e>

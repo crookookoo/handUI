@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using Leap.Unity;
 using Leap.Unity.Interaction;
 using UnityEngine;
@@ -67,6 +68,7 @@ public class RayHoverUI : MonoBehaviour
     public void SetFreeze(bool value)
     {
         frozen = value;
+        transform.DOMove(currentlyHoveringHand.stablePinchTransform().TransformPoint(-currentOffset), 0.4f);
     }
     public void PinchBegin()
     {

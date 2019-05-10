@@ -75,7 +75,7 @@ public class KeyboardButton : HandUIItem
 	protected override void OnHoverBegin()
 	{
 		hovered = true;
-		button.SetColor(0.2f);
+		button.SetColor(0.05f);
 //		manager.HoverCharachter(character, base.handUI.closestHand.isLeft);
 //		manager.AddCharacter(character);
 

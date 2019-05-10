@@ -71,7 +71,7 @@ public class MapControlPoint : MonoBehaviour {
 		float heightFactor = pg.pose.position.y - map.position.y;
 		heightFactor = Mathf.InverseLerp(0.15f, 0.65f, heightFactor);
 
-		controlPoint.position = endPos + XZdir * Mathf.InverseLerp(minExt, maxExt, ext) * heightFactor * extensionLength * 3 * (forceDirect ? 0 : 1);
+		controlPoint.position = endPos + XZdir * Mathf.InverseLerp(minExt, maxExt, ext) * heightFactor * extensionLength * 6 * (forceDirect ? 0 : 1);
 
 		// Vector3 bc = controlPoint.position;
 		// bc.y += (pg.pose.position.y - controlPoint.position.y) * 0.75f;
