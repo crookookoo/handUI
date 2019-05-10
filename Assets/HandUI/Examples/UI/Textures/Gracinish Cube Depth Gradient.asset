@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52c842d1b2b9c484c87dd90f52aef336, type: 3}
+  m_Name: Gracinish Cube Depth Gradient
+  m_EditorClassIdentifier: 
+  _gradient:
+    serializedVersion: 2
+    key0: {r: 0.20186342, g: 0, b: 0.38291615, a: 1}
+    key1: {r: 0.3803922, g: 0, b: 0.72156864, a: 1}
+    key2: {r: 0.96470594, g: 0.18823531, b: 0.20392159, a: 0}
+    key3: {r: 1, g: 0.56078434, b: 0.20000002, a: 0}
+    key4: {r: 1, g: 0.8196079, b: 0.2784314, a: 0}
+    key5: {r: 1, g: 0.9960785, b: 1, a: 0}
+    key6: {r: 1, g: 0.9960785, b: 1, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 10107
+    ctime2: 29887
+    ctime3: 46516
+    ctime4: 60970
+    ctime5: 65535
+    ctime6: 65535
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 6
+    m_NumAlphaKeys: 2
+  _wrapMode: 1
+  _textureResolution: 128
+  _filterMode: 1
+  _texture: {fileID: 28946333551628170}
+--- !u!28 &28946333551628170
+Texture2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: RampTexture
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  serializedVersion: 2
+  m_Width: 128
+  m_Height: 1
+  m_CompleteImageSize: 512
+  m_TextureFormat: 5
+  m_MipCount: 1
+  m_IsReadable: 1
+  m_AlphaIsTransparency: 1
+  m_ImageCount: 1
+  m_TextureDimension: 2
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_LightmapFormat: 0
+  m_ColorSpace: 0
+  image data: 512
+  _typelessdata: ff330061ff350066ff38006aff3a006eff3c0073ff3f0077ff41007cff430080ff460084ff480089ff4a008dff4d0092ff4f0096ff51009aff54009fff5600a3ff5800a8ff5a00acff5d00b1ff5f00b5ff6200b6ff6601b3ff6a03afff6e04acff7205a8ff7606a5ff7908a1ff7d099eff810a9bff850b97ff890d94ff8d0e90ff910f8dff951089ff991286ff9c1382ffa0147fffa4157cffa81778ffac1875ffb01971ffb41a6effb81c6affbc1d67ffbf1e63ffc31f60ffc7215dffcb2259ffcf2356ffd32452ffd7264fffdb274bffde2848ffe22944ffe62b41ffea2c3effee2d3afff22e37fff63033fff63333fff63633fff63933fff73c33fff73e33fff74133fff74433fff84733fff84a33fff84d33fff95033fff95333fff95633fff95933fffa5c33fffa5f33fffa6233fffb6533fffb6833fffb6b33fffb6e33fffc7133fffc7433fffc7633fffd7933fffd7c33fffd7f33fffd8233fffe8533fffe8833fffe8b33fffe8e33ffff9133ffff9334ffff9535ffff9835ffff9a36ffff9c37ffff9f37ffffa138ffffa339ffffa63affffa83affffaa3bffffad3cffffaf3cffffb23dffffb43effffb63fffffb93fffffbb40ffffbd41ffffc041ffffc242ffffc443ffffc744ffffc944ffffcb45ffffce46ffffd046ffffd558ffffda6dffffdf82ffffe497ffffe9abffffeec0fffff3d5fffff8eafffffeff
+  m_StreamData:
+    offset: 0
+    size: 0
+    path: 

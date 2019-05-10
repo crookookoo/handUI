@@ -1,0 +1,112 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: GradientSky 4
+  m_Shader: {fileID: 4800000, guid: 1bd21c9be7f6f4549a0817ebff94e8d9, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Tex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _BumpScale: 1
+    - _Cutoff: 0.5
+    - _DetailNormalMapScale: 1
+    - _DstBlend: 0
+    - _Exponent1: 1
+    - _Exponent2: 1
+    - _Exponent3: 1
+    - _Exponent4: 19.23
+    - _Exposure: 1.51
+    - _GlossMapScale: 1
+    - _Glossiness: 0.5
+    - _GlossyReflections: 1
+    - _Lod: 0
+    - _LodLevel: 0
+    - _Metallic: 0
+    - _Mode: 0
+    - _OcclusionStrength: 1
+    - _Parallax: 0.02
+    - _Saturation: 1
+    - _SmoothnessTextureChannel: 0
+    - _SpecularHighlights: 1
+    - _SrcBlend: 1
+    - _Switch2: 0
+    - _Switch3: 0
+    - _Switch4: 0
+    - _UVSec: 0
+    - _ZWrite: 1
+    m_Colors:
+    - _BaseColor: {r: 0.013283505, g: 0.011764706, b: 0.047058824, a: 1}
+    - _BottomColor: {r: 0.2627451, g: 0.019607844, b: 0.04569202, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color1: {r: 0.087967195, g: 0.038809054, b: 0.038809054, a: 1}
+    - _Color2: {r: 0, g: 0, b: 0, a: 1}
+    - _Color3: {r: 0, g: 0, b: 0, a: 1}
+    - _Color4: {r: 0.25, g: 0, b: 0.02745098, a: 1}
+    - _Direction1: {r: 0, g: 1, b: 0, a: 1}
+    - _Direction2: {r: 0.5, g: 1, b: 0, a: 1}
+    - _Direction3: {r: -0.3, g: -1, b: -0.2, a: 1}
+    - _Direction4: {r: 0, g: 1, b: 0, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _Euler: {r: 0, g: 0, b: 0, a: 1}
+    - _MiddleColor: {r: 0.14150941, g: 0.012682444, b: 0.024393976, a: 1}
+    - _NormalizedVector1: {r: 0, g: 1, b: 0, a: 0}
+    - _NormalizedVector2: {r: 0.4472136, g: 0.8944272, b: 0, a: 0}
+    - _NormalizedVector3: {r: -0.28221625, g: -0.94072086, b: -0.18814416, a: 0}
+    - _NormalizedVector4: {r: 0, g: 1, b: 0, a: 0}
+    - _Rotation1: {r: 1, g: 0, b: 0, a: 0}
+    - _Rotation2: {r: 0, g: 1, b: 0, a: 0}
+    - _Rotation3: {r: 0, g: 0, b: 1, a: 0}
+    - _Tint: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    - _TopColor: {r: 0.13137256, g: 0.009803922, b: 0.01372549, a: 1}

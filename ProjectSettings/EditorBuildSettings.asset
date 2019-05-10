@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/HandKeyboard/keyboard.unity
     guid: d0d41d20e720ff04fae010e83e3958bd
   - enabled: 1
-    path: Assets/HandUI/Main.unity
+    path: Assets/HandUI/Examples/Examples.unity
     guid: da7c4a5a9d079df498c7964e83d36492
   - enabled: 0
     path: Assets/HandUI/Map/Map_and_Pedestals.unity
